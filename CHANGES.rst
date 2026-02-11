@@ -2,6 +2,90 @@ Changelog
 =========
 
 
+Version 3.3.10
+--------------
+
+*Unreleased*
+
+Security fixes
+^^^^^^^^^^^^^^
+
+- Fix potential SSRF issues by disallowing outgoing requests to private/internal/local
+  IP addresses when the URL is user-provided.
+
+.. note::
+
+    There was only one place where this would have allowed returning data retrieved from
+    such a URL to the client, and this was only accessible to authenticated users with
+    event management privileges. Also, this vulnerability is only problematic if sensitive
+    information is accessible via an unauthenticated HTTP GET request (e.g. in AWS cloud
+    environments).
+
+- Fix an open redirect which could help making harmful URLs look more trustworthy by linking
+  to Indico and having it redirect the user to a malicious site
+
+Improvements
+^^^^^^^^^^^^
+
+- Log changes to event reminders in the event log (:pr:`7242`)
+- Allow sending account creation notifications to specific email addresses (:issue:`7166`,
+  :pr:`7233`, thanks :user:`duartegalvao`)
+- Support markdown in survey introduction text (:pr:`7260`)
+- Add Content-Security-Policy support (opt-in via the :data:`CSP_ENABLED` setting)
+  (:issue:`5486`, :pr:`7257`)
+- Allow admins to disable Gravatar/Identicon profile pictures via the :data:`DISABLE_GRAVATAR`
+  config option (:issue:`7210`, :pr:`7251`, thanks :user:`duartegalvao, unconventionaldotdev`)
+- Add a UI for managing predefined affiliations (:pr:`7183`, :pr:`7278`, thanks
+  :user:`duartegalvao, unconventionaldotdev`)
+- Add support for configurable file types in Paper Peer Reviewing (:issue:`7162`, :pr:`7156`)
+- Use the event's default language (or system default if not set) when creating abstract
+  notifications instead of the user's current language (:pr:`7294`)
+- Allow cloning registration forms within an event (:issue:`3229`, :pr:`6822`, thanks
+  :user:`adam-parker1, Emilijus-M`)
+- Allow removing countries and providing custom translated names for countries via config
+  (:pr:`7292`, :pr:`7299`, thanks :user:`jbtwist`)
+
+Bugfixes
+^^^^^^^^
+
+- Fix error when adding a user to a material ACL in a subcontribution (:pr:`7209`)
+- Fix timezone selector behaving incorrectly when choosing a custom timezone (:pr:`7214`)
+- Fix error when using shibboleth for authentication (:issue:`7213`, :pr:`7215`)
+- Fix error when sending scheduled reminders using an event time placeholder (:pr:`7238`)
+- Fix rendering static text/images in poster templates (:pr:`7239`)
+- Do not revert to defaults when disabling all optional event cloners (:issue:`6833`, :pr:`7245`)
+- Fix changing tracks for invited abstracts (:issue:`7061`, :pr:`7240`)
+- Disallow local account passwords longer than 72 characters instead of truncating them
+  (:pr:`7254`)
+- Fix recurrence information not being correctly included in room booking ical export
+  (:pr:`7255`)
+- Fix weird indentation on list items in markdown field preview (:pr:`7260`)
+- Fix unique title validation for disabled regform fields (:pr:`7277`)
+- Fix DatePicker min/max limits being affected by client timezone (:issue:`7273`, :pr:`7280`,
+  thanks :user:`jbtwist`)
+- Fix validation error when choosing exactly the maximum date in a regform date field
+  (:pr:`7288`)
+- Fix submit buttons not being enabled when modifying a markdown field using only the
+  button bar or a keyboard shortcut (:pr:`7310`)
+
+Accessibility
+^^^^^^^^^^^^^
+
+- Nothing so far
+
+Internal Changes
+^^^^^^^^^^^^^^^^
+
+- Require at least Postgres 14 during new installations. This check can be forced on
+  older Postgres versions (even though they are end-of-life), but we make no guarantees
+  that nothing is broken (:pr:`7232`)
+- Disallow server-side requests to private, loopback, reserved and link-local IP ranges in
+  places where the URL is user-provided (Mastodon URL check, LaTeX image retrieval, static
+  site generation) (:pr:`7244`)
+- Log requests to the legacy export API to ``indico.log`` (:pr:`7290`)
+- Disallow concurrent generation of category statistics (:pr:`7307`)
+
+
 Version 3.3.9
 -------------
 
