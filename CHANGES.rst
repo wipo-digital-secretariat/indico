@@ -2,6 +2,43 @@ Changelog
 =========
 
 
+Version 3.3.11
+--------------
+
+*Unreleased*
+
+Improvements
+^^^^^^^^^^^^
+
+- Show picture field validation status in the registration form (:pr:`7337`,
+  thanks :user:`jbtwist, unconventionaldotdev`)
+
+Bugfixes
+^^^^^^^^
+
+- Show event role dropdown when editing contribution/session ACLs (:pr:`7339`)
+- Fix error when loading category search results with extra query string params
+  from external search plugins (:pr:`7345`)
+- Require management access to all events in a series to manage it (:pr:`7348`)
+- Fix deleting an event series that contains deleted events (:pr:`7348`)
+
+Accessibility
+^^^^^^^^^^^^^
+
+- Screen readers now announce the filtering state indicator descriptive text instead of
+  just the short numeric label (:pr:`7335`, thanks :user:`foxbunny`)
+- Screen reader users can now identify the search field on the contribution list page
+  (:pr:`7343`, thanks :user:`foxbunny`)
+- The contribution list is now announced as a list by screen readers, conveying the
+  number of items (:pr:`7346`, thanks :user:`foxbunny`)
+
+Internal Changes
+^^^^^^^^^^^^^^^^
+
+- Require a modern Sentry version (at least v20.6.0) when using a self-hosted Sentry
+  installation for error reporting (:pr:`7333`)
+
+
 Version 3.3.10
 --------------
 
