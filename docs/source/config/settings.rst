@@ -1035,6 +1035,38 @@ System
 
     Default: ``False``
 
+<<<<<<< HEAD
+=======
+.. data:: DISABLE_GRAVATAR
+
+    Completely disables the Gravatar integration. When enabled, users will no
+    longer see Gravatar or Identicon options on the profile-picture page and
+    Indico will not try to fetch updates from gravatar.com.
+
+    Default: ``False``
+
+.. data:: CHECK_ACTION_PERMISSIONS
+
+    When enabled, certain action buttons in the UI (such as "Create event")
+    will be displayed to logged-in users only if they have the necessary
+    permissions to perform that action.
+
+    When disabled, buttons are always shown, even to non-logged in users (who will be redirected
+    to login when clicking).
+
+    .. note::
+
+        For performance reasons the access check for the "Create event" button only
+        takes into account permissions granted directly to the user, via a local group or via
+        a category role. When using externally-managed groups (e.g. LDAP), then this setting
+        should not be enabled as people may not see the button even though they have creation
+        privileges. When using a custom plugin that grants creation or management access to
+        categories bypassing Indico's usual permission system, this setting should also not be
+        used.
+
+    Default: ``False``
+
+>>>>>>> 1a1c2fc9ea (Add CHECK_ACTION_PERMISSIONS setting (#7332))
 .. data:: ALLOW_ADMIN_USER_DELETION
 
     Whether to allow administrators to permanently delete users from the
