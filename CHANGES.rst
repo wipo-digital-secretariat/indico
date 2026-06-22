@@ -46,6 +46,20 @@ Bugfixes
 - Use new MS Outlook URL in the share widget (:pr:`7424`, thanks :user:`hirishh`)
 - Fix editing contribution time from timetable bubbles when the CSP is enabled
   (:pr:`7432`)
+- Fix error when copying a paper file with an unguessable MIME type to the editing
+  module (:pr:`7475`)
+- Fix date picker showing January instead of the selected month when the user
+  language is not English (:issue:`7471`, :pr:`7476`, thanks :user:`foxbunny`)
+- Do not show "Clone Abstract" icon outside management area (:pr:`7493`)
+- Allow rejecting editables w/ missing required files (:pr:`7524`)
+- Fix select and combobox dropdowns appearing detached from their input on
+  mobile when the page is pinch-zoomed, when the input is near a viewport
+  edge, or when the virtual keyboard is open (:pr:`7529`, thanks
+  :user:`foxbunny`)
+- Fix database error when importing protection settings in an unlisted event
+  (:issue:`7550`, :pr:`7551`)
+- Use consistent sorting and hide deleted+unused single-choice options in
+  registration list filters (:pr:`7439`, thanks :user:`duartegalvao`)
 
 Accessibility
 ^^^^^^^^^^^^^
