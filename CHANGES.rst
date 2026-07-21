@@ -62,6 +62,11 @@ Bugfixes
   (:issue:`7550`, :pr:`7551`)
 - Use consistent sorting and hide deleted+unused single-choice options in
   registration list filters (:pr:`7439`, thanks :user:`duartegalvao`)
+- Honor room booking details restrictions in spreadsheet export (:pr:`7612`)
+- Show favorite events in the dashboard based on their end date instead of their
+  start date (:pr:`7653`, thanks :user:`SegiNyn`)
+- Reduce max filename length in ZIP downloads to avoid issues on Windows (:pr:`7479`,
+  :user:`moliholy`)
 
 Accessibility
 ^^^^^^^^^^^^^
