@@ -2,6 +2,38 @@ Changelog
 =========
 
 
+Version 3.3.14
+--------------
+
+*Unreleased*
+
+Improvements
+^^^^^^^^^^^^
+
+- Support multi-choice abstract/contribution fields (:pr:`7725`)
+
+Bugfixes
+^^^^^^^^
+
+- Fix "No value" filter for text-based abstract/contribution fields (:pr:`7725`)
+- Fix error when loading favorite contribution state when viewing a contribution in
+  a restricted event the user cannot access (:pr:`7740`)
+
+Accessibility
+^^^^^^^^^^^^^
+
+- Nothing so far
+
+Internal Changes
+^^^^^^^^^^^^^^^^
+
+- Allow plugins to declare file-backed config keys via the
+  ``plugin_config_defaults`` class attribute. Keys are exposed in ``indico.conf``
+  under the reserved ``PLUGIN_<NAME>_`` namespace, with parity for defaults,
+  sanitization and ``INDICO_CONF_OVERRIDE``
+  (:pr:`7499`, thanks :user:`moliholy, unconventionaldotdev`)
+
+
 Version 3.3.13
 --------------
 
